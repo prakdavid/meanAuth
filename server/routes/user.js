@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 
 function isLoggedIn(req, res, next) {
-  console.log(req.headers);
   const token = req.headers.authorization;
   if (token) {
     jwt.verify(token, RSA_PUBLIC_KEY, (err, decoded) => {

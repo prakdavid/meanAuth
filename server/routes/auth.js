@@ -44,7 +44,8 @@ router.get('/refresh-token', (req, res) => {
 router.post('/signup', (req, res) => {
   const newUser = new User({
     email: req.body.email,
-    name: req.body.name,
+    lastname: req.body.lastname,
+    firstname: req.body.firstname,
     password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8))
   });
 

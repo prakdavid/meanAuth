@@ -4,6 +4,7 @@ import { tap, switchMap } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { JwtToken } from '../models/jwt-token.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,11 @@ export class AuthService {
   public subscription: Subscription;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.initToken();
-    // this.subscription = this.initTimer();
+    this.subscription = this.initTimer();
   }
 
   private initToken(): void {
@@ -78,7 +80,7 @@ export class AuthService {
       tap( (token: string) => {
         this.jwtToken.next({
           isAuthenticated: true,
-          token: token
+          token: token,
         });
 
         localStorage.setItem('jwt', token);
@@ -92,5 +94,6 @@ export class AuthService {
       token: null
     });
     localStorage.removeItem('jwt');
+    this.router.navigate(['/signin']);
   }
 }
