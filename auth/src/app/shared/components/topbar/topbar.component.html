@@ -1,6 +1,12 @@
-<mat-toolbar fxLayoutGap="15px">
+<mat-toolbar fxLayoutGap="15px" color="primary">
   <span class="link" routerLink="/">My Application</span>
   <span fxFlex="auto"></span>
-  <span class="link" routerLink="/signin"routerLink="/signin">Conexion</span>
-  <span class="link" routerLink="/signup">Inscription</span>
+  <span *ngIf="!jtToken.isAuthenticated">
+    <span class="link" routerLink="/signin">Conexion</span>
+    <span class="link" routerLink="/signup">Inscription</span>
+  </span>
+  <span *ngIf="jtToken.isAuthenticated" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <span class="link" routerLink="/profile" matTooltip="Mon profile"><i class="material-icons">account_circle</i></span>
+    <span class="link" (click)="logout()"  matTooltip="Se déconnecter "><i class="material-icons">exit_to_app</i></span>
+  </span>
 </mat-toolbar>

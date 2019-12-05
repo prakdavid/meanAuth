@@ -1,1 +1,23 @@
-<p>signup works!</p>
+<div class="my-5 py-5" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-title>Inscription</mat-card-title>
+    <mat-card-content>
+      <form fxlayout="column" fxLayoutGap="15px" [formGroup]="form">
+        <mat-form-field>
+          <input type="text" placeholder="Email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" placeholder="Prénom" matInput formControlName="firstname">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" placeholder="Nom" matInput formControlName="lastname">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" placeholder="Mot de passe" matInput formControlName="password">
+        </mat-form-field>
+        <div *ngIf="error">{{ error }}</div>
+        <button mat-raided-button color="primary" (click)="signup()">Inscription</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

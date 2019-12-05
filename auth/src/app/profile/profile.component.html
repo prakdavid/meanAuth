@@ -1,0 +1,13 @@
+<div fxLayout="column" class="py-5" fxLayoutAlign="center center">
+    <mat-card>
+      <mat-card-title>Mon profile</mat-card-title>
+      <mat-card-content *ngIf="currentUser | async; let user;" fxLayout="column" fxlayoutGap="15px">
+        <div>{{ user.email }}</div>
+        <div>{{ user.firstname }}</div>
+        <div>{{ user.lastname }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  
+  

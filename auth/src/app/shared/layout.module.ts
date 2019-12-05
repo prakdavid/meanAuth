@@ -7,6 +7,7 @@ import {
   MatInputModule,
   MatFormFieldModule,
   MatCardModule,
+  MatTooltipModule
 } from '@angular/material';
 
 
@@ -16,7 +17,8 @@ const MAT = [
   MatButtonModule,
   MatInputModule,
   MatFormFieldModule,
-  MatCardModule
+  MatCardModule,
+  MatTooltipModule
 ];
 
 

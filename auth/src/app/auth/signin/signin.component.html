@@ -1,1 +1,19 @@
-<p>signin works!</p>
+<div fxLayout="column" class="py-5" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-title>Connexion</mat-card-title>
+    <mat-card-content>
+      <form fxlayout="column" fxLayoutGap="15px" [formGroup]="form" fxLayoutAlign="center center">
+        <mat-form-field>
+          <input type="text" placeholder="Email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" placeholder="Mot de passe" matInput formControlName="password">
+        </mat-form-field>
+        <div *ngIf="error">{{ error }}</div>
+        <button mat-raided-button color="primary" (click)="signin()">Connexion</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
